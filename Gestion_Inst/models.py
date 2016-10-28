@@ -24,13 +24,13 @@ class Alumno(Persona):
 	fecha_inicio = models.DateTimeField(default=timezone.now)
 	legajo = models.IntegerField()
 	estado = models.CharField(max_length=50)
-	curso = models.ForeignKey(Curso)
-
-class Curso(models.Model):
-    anio = models.CharField()
-    division = models.CharField()
-
-class Egresos(models.Model)
-    descripcion = models.CharField()
-    fecha = models.DateField()
-    monto = models.FloatField()
+# 	curso = models.ForeignKey(Curso)
+#
+# class Curso(models.Model):
+#     anio = models.CharField()
+#     division = models.CharField()
+#
+# class Egresos(models.Model):
+#     descripcion = models.CharField()
+#     fecha = models.DateField()
+#     monto = models.FloatField()
