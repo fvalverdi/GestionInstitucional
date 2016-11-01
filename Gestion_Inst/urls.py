@@ -20,4 +20,8 @@ from Gestion_Inst import views
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
+
+
+    #Alumno
+    url(r'^crear/', 'Gestion_Inst.views.crearAlumno', name='crear'),
 ]

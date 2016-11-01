@@ -12,9 +12,9 @@ class Sexo(models.Model):
 class Persona(models.Model):
 	apellido = models.CharField(max_length=50)
 	nombres = models.CharField(max_length=100)
-	fecha_nac = models.DateField()
-	domicilio = models.CharField(max_length=200)
-	telefono = models.CharField(max_length=15)
+	fecha_nac = models.DateField(null=True,blank=True)
+	domicilio = models.CharField(max_length=200, null=True,blank=True)
+	telefono = models.CharField(max_length=15, null=True,blank=True)
 	dni = models.IntegerField()
 	sexo = models.ForeignKey(Sexo)
 	def __str__(self):
@@ -22,8 +22,10 @@ class Persona(models.Model):
 
 class Alumno(Persona):
 	fecha_inicio = models.DateTimeField(default=timezone.now)
-	legajo = models.IntegerField()
-	estado = models.CharField(max_length=50)
+	legajo = models.IntegerField(null=True,blank=True)
+	estado = models.BooleanField(default=False) #False significa Inactivo - Activo
+
+
 # 	curso = models.ForeignKey(Curso)
 #
 # class Curso(models.Model):
