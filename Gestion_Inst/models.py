@@ -61,12 +61,12 @@ class Pagos_Alumnos(models.Model):
 
 class Ingresos(models.Model):
 	fecha_pago = models.DateTimeField(default=timezone.now)
-	descripcion = models.CharField()
+	descripcion = models.CharField(max_length=50)
 	categoria = models.ForeignKey(Categoria)
 
 class Egresos(models.Model):
 	fecha_pago = models.DateTimeField(default=timezone.now)
-	descripcion = models.CharField()
+	descripcion = models.CharField(max_length=60)
 	categoria = models.ForeignKey(Categoria)
 
 # 	curso = models.ForeignKey(Curso)
