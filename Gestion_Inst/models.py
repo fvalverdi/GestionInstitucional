@@ -32,15 +32,42 @@ class Division(models.Model):
 	curso = models.ForeignKey(Curso)
 
 class Alumno(Persona):
-	fecha_inicio = models.DateTimeField(default=timezone.now)
+	fecha_inicio = models.DateField(default=timezone.now)
 	legajo = models.IntegerField(null=True,blank=True)
 	estado = models.BooleanField(default=False) #False significa Inactivo - Activo
 	division = models.ForeignKey(Division)
 
+class Ciclo(models.Model):
+	anio = models.IntegerField()
+	monto_cuota = models.FloatField()
+	monto_inscripcion = models.FloatField()
+	fecha_inicio = models.DateField()
+	fecha_fin = models.DateField()
+	recargo = models.FloatField()
 
+class Categoria(models.Model):
+	descripcion = models.CharField(max_length=50)
+	tipo = models.BooleanField()
 
+class Pagos_Alumnos(models.Model):
+	fecha_pago = models.DateTimeField(default=timezone.now)
+	fecha_inicio = models.DateField()
+	fecha_vencimiento = models.DateField()
+	monto_abonado = models.FloatField()
+	estado = models.BooleanField()
+	alumno = models.ForeignKey(Alumno)
+	ciclo = models.ForeignKey(Ciclo)
+	categoria = models.ForeignKey(Categoria)
 
+class Ingresos(models.Model):
+	fecha_pago = models.DateTimeField(default=timezone.now)
+	descripcion = models.CharField()
+	categoria = models.ForeignKey(Categoria)
 
+class Egresos(models.Model):
+	fecha_pago = models.DateTimeField(default=timezone.now)
+	descripcion = models.CharField()
+	categoria = models.ForeignKey(Categoria)
 
 # 	curso = models.ForeignKey(Curso)
 #
