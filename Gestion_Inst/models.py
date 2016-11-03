@@ -20,22 +20,28 @@ class Persona(models.Model):
 	def __str__(self):
 		return str(self.dni) +' '+self.nombres +' '+self.apellido
 
+class Nivel(models.Model):
+	descripcion = models.CharField(max_length=50)
+
+class Curso(models.Model):
+	descripcion = models.CharField(max_length=50)
+	nivel = models.ForeignKey(Nivel)
+
+class Division(models.Model):
+	descripcion = models.CharField(max_length=50)
+	curso = models.ForeignKey(Curso)
+
 class Alumno(Persona):
 	fecha_inicio = models.DateTimeField(default=timezone.now)
 	legajo = models.IntegerField(null=True,blank=True)
 	estado = models.BooleanField(default=False) #False significa Inactivo - Activo
 	division = models.ForeignKey(Division)
 
-class Division(models.Model):
-	descripcion = models.CharField(max_length=50)
-	curso = models.ForeignKey(Curso)
 
-class Curso(models.Model):
-	descripcion = models.CharField(max_length=50)
-	nivel = models.ForeignKey(Nivel)
 
-class Nivel(models.Model):
-	descripcion = models.CharField(max_length=50)
+
+
+
 # 	curso = models.ForeignKey(Curso)
 #
 # class Curso(models.Model):
