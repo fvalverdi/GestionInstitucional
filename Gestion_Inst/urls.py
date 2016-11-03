@@ -23,5 +23,5 @@ urlpatterns = [
 
 
     #Alumno
-    url(r'^crear/', 'Gestion_Inst.views.crearAlumno', name='crear'),
+    url(r'^crear/$', 'Gestion_Inst.views.crearAlumno', name='crear'),
 ]
