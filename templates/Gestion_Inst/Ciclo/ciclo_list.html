@@ -31,8 +31,8 @@
                             <td>{{ server.fecha_inicio }}</td>
                             <td>{{ server.fecha_fin }}</td>
                             <td>{{ server.recargo }}</td>
-                            <td><a href="{% url "nivel_edit" server.id %}">Editar</a></td>
-                            <td><a href="{% url "nivel_delete" server.id %}">Eliminar</a></td>
+                            <td><a href="{% url "ciclo_edit" server.id %}">Editar</a></td>
+                            <td><a href="{% url "ciclo_delete" server.id %}">Eliminar</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -42,5 +42,5 @@
     </div>
 
 
-    <a href="{% url "nivel_new" %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url "ciclo_new" %}" class="btn btn-primary">Nuevo</a>
 {% endblock %}

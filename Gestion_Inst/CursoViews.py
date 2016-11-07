@@ -46,7 +46,7 @@ def curso_create(request, template_name='Gestion_Inst/Curso/curso_form.html'):
     return render(request, template_name, {'form':form})
 
 def curso_update(request, pk, template_name='Gestion_Inst/Curso/curso_form.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Curso, pk=pk)
     form = CursoForm(request.POST or None, instance=server)
     if form.is_valid():
         form.save()
@@ -54,7 +54,7 @@ def curso_update(request, pk, template_name='Gestion_Inst/Curso/curso_form.html'
     return render(request, template_name, {'form':form})
 
 def curso_delete(request, pk, template_name='Gestion_Inst/Curso/curso_confirm_delete.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Curso, pk=pk)
     if request.method=='POST':
         server.delete()
         return redirect('curso_list')

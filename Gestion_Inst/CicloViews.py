@@ -46,7 +46,7 @@ def ciclo_create(request, template_name='Gestion_Inst/Ciclo/ciclo_form.html'):
     return render(request, template_name, {'form':form})
 
 def ciclo_update(request, pk, template_name='Gestion_Inst/Ciclo/ciclo_form.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Ciclo, pk=pk)
     form = CicloForm(request.POST or None, instance=server)
     if form.is_valid():
         form.save()
@@ -54,7 +54,7 @@ def ciclo_update(request, pk, template_name='Gestion_Inst/Ciclo/ciclo_form.html'
     return render(request, template_name, {'form':form})
 
 def ciclo_delete(request, pk, template_name='Gestion_Inst/Ciclo/ciclo_confirm_delete.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Ciclo, pk=pk)
     if request.method=='POST':
         server.delete()
         return redirect('ciclo_list')

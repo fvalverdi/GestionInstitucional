@@ -20,8 +20,8 @@
                         <tr>
                             <td>{{ server.id }}</td>
                             <td>{{ server.descripcion }}</td>
-                            <td><a href="{% url "nivel_edit" server.id %}">Editar</a></td>
-                            <td><a href="{% url "nivel_delete" server.id %}">Eliminar</a></td>
+                            <td><a href="{% url "categoria_edit" server.id %}">Editar</a></td>
+                            <td><a href="{% url "categoria_delete" server.id %}">Eliminar</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -31,5 +31,5 @@
     </div>
 
 
-    <a href="{% url "nivel_new" %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url "categoria_new" %}" class="btn btn-primary">Nuevo</a>
 {% endblock %}

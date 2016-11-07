@@ -46,7 +46,7 @@ def division_create(request, template_name='Gestion_Inst/Division/division_form.
     return render(request, template_name, {'form':form})
 
 def division_update(request, pk, template_name='Gestion_Inst/Division/division_form.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Division, pk=pk)
     form = DivisionForm(request.POST or None, instance=server)
     if form.is_valid():
         form.save()
@@ -54,7 +54,7 @@ def division_update(request, pk, template_name='Gestion_Inst/Division/division_f
     return render(request, template_name, {'form':form})
 
 def division_delete(request, pk, template_name='Gestion_Inst/Division/division_confirm_delete.html'):
-    server = get_object_or_404(Nivel, pk=pk)
+    server = get_object_or_404(Division, pk=pk)
     if request.method=='POST':
         server.delete()
         return redirect('division_list')
