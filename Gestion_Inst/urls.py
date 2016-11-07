@@ -30,36 +30,36 @@ urlpatterns = [
     #amb Nivel
 
     url(r'^niveles$', NivelViews.nivel_list, name='nivel_list'),
-    url(r'^new$', NivelViews.nivel_create, name='nivel_new'),
-    url(r'^edit/(?P<pk>\d+)$', NivelViews.nivel_update, name='nivel_edit'),
-    url(r'^delete/(?P<pk>\d+)$', NivelViews.nivel_delete, name='nivel_delete'),
+    url(r'^newNivel$', NivelViews.nivel_create, name='nivel_new'),
+    url(r'^editNivel/(?P<pk>\d+)$', NivelViews.nivel_update, name='nivel_edit'),
+    url(r'^deleteNivel/(?P<pk>\d+)$', NivelViews.nivel_delete, name='nivel_delete'),
 
     #amb Curso
 
     url(r'^cursos$', CursoViews.curso_list, name='curso_list'),
-    url(r'^new$', CursoViews.curso_create, name='curso_new'),
-    url(r'^edit/(?P<pk>\d+)$', CursoViews.curso_update, name='curso_edit'),
-    url(r'^delete/(?P<pk>\d+)$', CursoViews.curso_delete, name='curso_delete'),
+    url(r'^newCurso$', CursoViews.curso_create, name='curso_new'),
+    url(r'^editCurso/(?P<pk>\d+)$', CursoViews.curso_update, name='curso_edit'),
+    url(r'^deleteCurso/(?P<pk>\d+)$', CursoViews.curso_delete, name='curso_delete'),
 
     #amb Division
 
     url(r'^divisiones', DivisionViews.division_list, name='division_list'),
-    url(r'^new$', DivisionViews.division_create, name='division_new'),
-    url(r'^edit/(?P<pk>\d+)$', DivisionViews.division_update, name='division_edit'),
-    url(r'^delete/(?P<pk>\d+)$', DivisionViews.division_delete, name='division_delete'),
+    url(r'^newDivision$', DivisionViews.division_create, name='division_new'),
+    url(r'^editDivision/(?P<pk>\d+)$', DivisionViews.division_update, name='division_edit'),
+    url(r'^deleteDivision/(?P<pk>\d+)$', DivisionViews.division_delete, name='division_delete'),
 
      #amb Division
 
     url(r'^categorias', CategoriaViews.categoria_list, name='categoria_list'),
-    url(r'^new$', CategoriaViews.categoria_create, name='categoria_new'),
-    url(r'^edit/(?P<pk>\d+)$', CategoriaViews.categoria_update, name='categoria_edit'),
-    url(r'^delete/(?P<pk>\d+)$', CategoriaViews.categoria_delete, name='categoria_delete'),
+    url(r'^newCaegoria$', CategoriaViews.categoria_create, name='categoria_new'),
+    url(r'^editCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_update, name='categoria_edit'),
+    url(r'^deleteCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_delete, name='categoria_delete'),
 
      #amb Ciclo
 
     url(r'^ciclos', CicloViews.ciclo_list, name='ciclo_list'),
-    url(r'^new$', CicloViews.ciclo_create, name='ciclo_new'),
-    url(r'^edit/(?P<pk>\d+)$', CicloViews.ciclo_update, name='ciclo_edit'),
-    url(r'^delete/(?P<pk>\d+)$', CicloViews.ciclo_delete, name='ciclo_delete'),
+    url(r'^newCiclo$', CicloViews.ciclo_create, name='ciclo_new'),
+    url(r'^editCiclo/(?P<pk>\d+)$', CicloViews.ciclo_update, name='ciclo_edit'),
+    url(r'^deleteCiclo/(?P<pk>\d+)$', CicloViews.ciclo_delete, name='ciclo_delete'),
 
 ]

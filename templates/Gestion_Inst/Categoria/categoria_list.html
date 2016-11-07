@@ -10,7 +10,8 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nivel</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -20,6 +21,7 @@
                         <tr>
                             <td>{{ server.id }}</td>
                             <td>{{ server.descripcion }}</td>
+                            <td>{{ server.tipo }}</td>
                             <td><a href="{% url "categoria_edit" server.id %}">Editar</a></td>
                             <td><a href="{% url "categoria_delete" server.id %}">Eliminar</a></td>
                         </tr>

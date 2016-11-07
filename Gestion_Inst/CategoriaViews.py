@@ -18,7 +18,7 @@ class CategoriaForm(forms.ModelForm):
 
     class Meta:
         model = Categoria
-        fields = ('descripcion',)
+        fields = ('descripcion','tipo',)
 
     def __init__(self,*args,**kwargs):
         super(CategoriaForm,self).__init__(*args,**kwargs)
