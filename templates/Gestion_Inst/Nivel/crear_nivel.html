@@ -1,0 +1,18 @@
+{% extends 'Gestion_Inst/plantilla-back.html' %}
+{% load i18n %}
+
+
+
+{% block logo %}
+    <header class="image-bg-fluid-height">
+        <img class="img-responsive img-center" src="/static/img/logo2.png" alt="">
+    </header>
+{% endblock %}
+
+{% block header %}Nuevo Nivel de Enseñanza{% endblock %}
+{% block principal %}
+    {% load crispy_forms_tags %}
+
+    {% crispy form %}
+
+{% endblock %}

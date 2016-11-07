@@ -94,22 +94,49 @@
                             <!-- /input-group -->
                         </li>{% endcomment %}
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw"></i> Torneos</a>
+                            <a href=""><i class="fa fa-dashboard fa-fw"></i>Torneos</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Academico<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="{% url "nivel_list" %}">Alumnos</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="{% url "ciclo_list" %}">Ciclo Lectivo</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "nivel_list" %}">Niveles</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "curso_list" %}">Cursos</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "division_list" %}">Divisiones</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Jugadores</a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Facturación<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{% url "categoria_list" %}">Categorias</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "curso_list" %}">Ingresos</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "division_list" %}">Egresos</a>
+                                </li>
+                                <li>
+                                    <a href="{% url "division_list" %}">Pagos Alumnos</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i>Jugadores</a>
                         </li>
 
 
