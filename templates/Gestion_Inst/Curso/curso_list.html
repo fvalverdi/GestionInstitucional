@@ -21,7 +21,7 @@
                             <td>{{ server.id }}</td>
                             <td>{{ server.descripcion }}</td>
                             <td><a href="{% url "curso_edit" server.id %}">Editar</a></td>
-                            <td><a href="{% url "ciclo_delete" server.id %}">Eliminar</a></td>
+                            <td><a href="{% url "curso_delete" server.id %}">Eliminar</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
