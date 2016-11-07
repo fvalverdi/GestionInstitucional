@@ -33,7 +33,7 @@ class DivisionForm(forms.ModelForm):
         )
 
 def division_list(request, template_name='Gestion_Inst/Division/division_list.html'):
-    servers = Nivel.objects.all()
+    servers = Division.objects.all()
     data = {}
     data['object_list'] = servers
     return render(request, template_name, data)

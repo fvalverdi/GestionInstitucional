@@ -33,7 +33,7 @@ class CursoForm(forms.ModelForm):
         )
 
 def curso_list(request, template_name='Gestion_Inst/Curso/curso_list.html'):
-    servers = Nivel.objects.all()
+    servers = Curso.objects.all()
     data = {}
     data['object_list'] = servers
     return render(request, template_name, data)

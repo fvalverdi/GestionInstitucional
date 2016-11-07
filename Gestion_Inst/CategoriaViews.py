@@ -32,20 +32,20 @@ class CategoriaForm(forms.ModelForm):
             )
         )
 
-def curso_list(request, template_name='Gestion_Inst/Categoria/categoria_list.html'):
-    servers = Nivel.objects.all()
+def categoria_list(request, template_name='Gestion_Inst/Categoria/categoria_list.html'):
+    servers = Categoria.objects.all()
     data = {}
     data['object_list'] = servers
     return render(request, template_name, data)
 
-def curso_create(request, template_name='Gestion_Inst/Categoria/categoria_form.html'):
+def categoria_create(request, template_name='Gestion_Inst/Categoria/categoria_form.html'):
     form = CategoriaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('categoria_list')
     return render(request, template_name, {'form':form})
 
-def curso_update(request, pk, template_name='Gestion_Inst/Categoria/categoria_form.html'):
+def categoria_update(request, pk, template_name='Gestion_Inst/Categoria/categoria_form.html'):
     server = get_object_or_404(Nivel, pk=pk)
     form = CategoriaForm(request.POST or None, instance=server)
     if form.is_valid():
@@ -53,7 +53,7 @@ def curso_update(request, pk, template_name='Gestion_Inst/Categoria/categoria_fo
         return redirect('categoria_list')
     return render(request, template_name, {'form':form})
 
-def curso_delete(request, pk, template_name='Gestion_Inst/Categoria/categoria_confirm_delete.html'):
+def categoria_delete(request, pk, template_name='Gestion_Inst/Categoria/categoria_confirm_delete.html'):
     server = get_object_or_404(Nivel, pk=pk)
     if request.method=='POST':
         server.delete()

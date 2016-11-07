@@ -33,7 +33,7 @@ class CicloForm(forms.ModelForm):
         )
 
 def ciclo_list(request, template_name='Gestion_Inst/Ciclo/ciclo_list.html'):
-    servers = Nivel.objects.all()
+    servers = Ciclo.objects.all()
     data = {}
     data['object_list'] = servers
     return render(request, template_name, data)
