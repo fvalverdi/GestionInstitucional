@@ -59,3 +59,9 @@ def categoria_delete(request, pk, template_name='Gestion_Inst/Categoria/categori
         server.delete()
         return redirect('categoria_list')
     return render(request, template_name, {'object':server})
+
+def categoria_borrar(request, pk):
+    server = get_object_or_404(Categoria, pk=pk)
+
+    server.delete()
+    return redirect('categoria_list')

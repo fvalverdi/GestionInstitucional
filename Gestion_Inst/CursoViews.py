@@ -59,3 +59,9 @@ def curso_delete(request, pk, template_name='Gestion_Inst/Curso/curso_confirm_de
         server.delete()
         return redirect('curso_list')
     return render(request, template_name, {'object':server})
+
+def curso_borrar(request, pk):
+    server = get_object_or_404(Curso, pk=pk)
+
+    server.delete()
+    return redirect('curso_list')

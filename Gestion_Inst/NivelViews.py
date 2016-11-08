@@ -59,3 +59,9 @@ def nivel_delete(request, pk, template_name='Gestion_Inst/Nivel/nivel_confirm_de
         server.delete()
         return redirect('nivel_list')
     return render(request, template_name, {'object':server})
+
+def nivel_borrar(request, pk):
+    server = get_object_or_404(Nivel, pk=pk)
+
+    server.delete()
+    return redirect('nivel_list')

@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^alumnos', AlumnosViews.alumnos_list, name='alumnos_list'),
     url(r'^editarAlumno/(?P<pk>[0-9]+)', AlumnosViews.alumno_update, name='editarAlumno'),
     url(r'^deleteAlumno/(?P<pk>\d+)$', AlumnosViews.alumno_delete, name='alumno_delete'),
+    url(r'^borrarAlumno/(?P<pk>\d+)$', AlumnosViews.alumno_borrar, name='alumno_borrar'),
 
     #amb Nivel
 
@@ -34,6 +35,7 @@ urlpatterns = [
     url(r'^newNivel$', NivelViews.nivel_create, name='nivel_new'),
     url(r'^editNivel/(?P<pk>\d+)$', NivelViews.nivel_update, name='nivel_edit'),
     url(r'^deleteNivel/(?P<pk>\d+)$', NivelViews.nivel_delete, name='nivel_delete'),
+    url(r'^borrarNivel/(?P<pk>\d+)$', NivelViews.nivel_borrar, name='nivel_borrar'),
 
     #amb Curso
 
@@ -41,6 +43,7 @@ urlpatterns = [
     url(r'^newCurso$', CursoViews.curso_create, name='curso_new'),
     url(r'^editCurso/(?P<pk>\d+)$', CursoViews.curso_update, name='curso_edit'),
     url(r'^deleteCurso/(?P<pk>\d+)$', CursoViews.curso_delete, name='curso_delete'),
+    url(r'^borrarCurso/(?P<pk>\d+)$', CursoViews.curso_borrar, name='curso_borrar'),
 
     #amb Division
 
@@ -48,6 +51,7 @@ urlpatterns = [
     url(r'^newDivision$', DivisionViews.division_create, name='division_new'),
     url(r'^editDivision/(?P<pk>\d+)$', DivisionViews.division_update, name='division_edit'),
     url(r'^deleteDivision/(?P<pk>\d+)$', DivisionViews.division_delete, name='division_delete'),
+    url(r'^borrarDivision/(?P<pk>\d+)$', DivisionViews.division_borrar, name='division_borrar'),
 
      #amb Categorias
 
@@ -55,6 +59,8 @@ urlpatterns = [
     url(r'^newCaegoria$', CategoriaViews.categoria_create, name='categoria_new'),
     url(r'^editCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_update, name='categoria_edit'),
     url(r'^deleteCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_delete, name='categoria_delete'),
+    url(r'^borrarCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_borrar, name='categoria_borrar'),
+
 
      #amb Ciclo
 
@@ -62,5 +68,6 @@ urlpatterns = [
     url(r'^newCiclo$', CicloViews.ciclo_create, name='ciclo_new'),
     url(r'^editCiclo/(?P<pk>\d+)$', CicloViews.ciclo_update, name='ciclo_edit'),
     url(r'^deleteCiclo/(?P<pk>\d+)$', CicloViews.ciclo_delete, name='ciclo_delete'),
+    url(r'^borrarCiclo/(?P<pk>\d+)$', CicloViews.ciclo_borrar, name='ciclo_borrar'),
 
 ]

@@ -59,3 +59,9 @@ def ciclo_delete(request, pk, template_name='Gestion_Inst/Ciclo/ciclo_confirm_de
         server.delete()
         return redirect('ciclo_list')
     return render(request, template_name, {'object':server})
+
+def ciclo_borrar(request, pk):
+    server = get_object_or_404(Ciclo, pk=pk)
+
+    server.delete()
+    return redirect('ciclo_list')

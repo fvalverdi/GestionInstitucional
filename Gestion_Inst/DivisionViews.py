@@ -59,3 +59,9 @@ def division_delete(request, pk, template_name='Gestion_Inst/Division/division_c
         server.delete()
         return redirect('division_list')
     return render(request, template_name, {'object':server})
+
+def division_borrar(request, pk):
+    server = get_object_or_404(Division, pk=pk)
+
+    server.delete()
+    return redirect('division_list')

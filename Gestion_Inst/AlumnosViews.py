@@ -57,3 +57,9 @@ def alumno_delete(request, pk, template_name='Gestion_Inst/Alumno/alumno_confirm
         server.delete()
         return redirect('alumno_list')
     return render(request, template_name, {'object':server})
+
+def alumno_borrar(request, pk):
+    server = get_object_or_404(Alumno, pk=pk)
+
+    server.delete()
+    return redirect('alumno_list')
