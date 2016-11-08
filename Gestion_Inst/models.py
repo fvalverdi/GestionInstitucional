@@ -41,6 +41,7 @@ class Alumno(Persona):
 	fecha_inicio = models.DateField(default=timezone.now)
 	legajo = models.IntegerField(null=True,blank=True)
 	estado = models.BooleanField(default=False) #False significa Inactivo - Activo
+	situacion = models.BooleanField(default=False) #False significa Al dia - True Moroso
 	nivel = models.ForeignKey(Nivel,null=True)
 	curso = models.ForeignKey(Curso,null=True)
 	division = models.ForeignKey(Division,null=True)
