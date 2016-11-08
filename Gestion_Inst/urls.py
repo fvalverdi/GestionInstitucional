@@ -49,7 +49,7 @@ urlpatterns = [
     url(r'^editDivision/(?P<pk>\d+)$', DivisionViews.division_update, name='division_edit'),
     url(r'^deleteDivision/(?P<pk>\d+)$', DivisionViews.division_delete, name='division_delete'),
 
-     #amb Division
+     #amb Categorias
 
     url(r'^categorias', CategoriaViews.categoria_list, name='categoria_list'),
     url(r'^newCaegoria$', CategoriaViews.categoria_create, name='categoria_new'),
