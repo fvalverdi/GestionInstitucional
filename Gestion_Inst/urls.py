@@ -16,16 +16,17 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews
+from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
 
 
     #Alumno
-    url(r'^crear/$', views.crearAlumno, name='crear'),
-    url(r'^agregarNivel/$', views.crearNivelEnsenanza, name='agregarNivel'),
-    url(r'^editarNivel/(?P<pk>[0-9]+)', views.editarNivelEnsenanza, name='editarNivel'),
+    url(r'^newAlumno/$', AlumnosViews.alumno_create, name='crearAlumno'),
+    url(r'^alumnos', AlumnosViews.alumnos_list, name='alumnos_list'),
+    url(r'^editarAlumno/(?P<pk>[0-9]+)', AlumnosViews.alumno_update, name='editarAlumno'),
+    url(r'^deleteAlumno/(?P<pk>\d+)$', AlumnosViews.alumno_delete, name='alumno_delete'),
 
     #amb Nivel
 

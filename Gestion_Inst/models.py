@@ -34,6 +34,8 @@ class Curso(models.Model):
 class Division(models.Model):
 	descripcion = models.CharField(max_length=50)
 	#curso = models.ForeignKey(Curso)
+	def __str__(self):
+		return self.descripcion
 
 class Alumno(Persona):
 	fecha_inicio = models.DateField(default=timezone.now)

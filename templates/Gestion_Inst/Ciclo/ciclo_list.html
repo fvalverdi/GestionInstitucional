@@ -30,8 +30,56 @@
                             <td>{{ server.fecha_inicio }}</td>
                             <td>{{ server.fecha_fin }}</td>
                             <td>{{ server.recargo }}</td>
-                            <td><a href="{% url "ciclo_edit" server.id %}">Editar</a></td>
-                            <td><a href="{% url "ciclo_delete" server.id %}">Eliminar</a></td>
+                            <td>
+                                <p><a data-toggle="modal" href="#editar{{ server.id }}" class="btn btn-sm btn-warning">Editar</a></p>
+                            </td>
+
+                            <div id="editar{{ server.id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Editar Ciclo</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Esta seguro que desea Editar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'ciclo_edit' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <td>
+                                <p><a data-toggle="modal" href="#eliminar{{ server.id }}" class="btn btn-sm btn-danger">Eliminar</a></p>
+                            </td>
+
+                            <div id="eliminar{{ server.id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Eliminar Ciclo</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Esta seguro que desea Eliminar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'ciclo_delete' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--<td><a href="{% url "ciclo_edit" server.id %}">Editar</a></td>
+                            <td><a href="{% url "ciclo_delete" server.id %}">Eliminar</a></td>-->
                         </tr>
                     {% endfor %}
                     </tbody>
