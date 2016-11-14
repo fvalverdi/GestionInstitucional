@@ -86,7 +86,7 @@ class Egresos(models.Model):
 	fecha_pago = models.DateTimeField(default=timezone.now)
 	descripcion = models.CharField(max_length=60)
 	categoria = models.ForeignKey(Categoria)
-
+	monto = models.FloatField()
 # 	curso = models.ForeignKey(Curso)
 #
 # class Curso(models.Model):

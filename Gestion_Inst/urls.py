@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews
+from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
@@ -62,12 +62,19 @@ urlpatterns = [
     url(r'^borrarCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_borrar, name='categoria_borrar'),
 
 
-     #amb Ciclo
+     #amb Ciclos
 
     url(r'^ciclos', CicloViews.ciclo_list, name='ciclo_list'),
     url(r'^newCiclo$', CicloViews.ciclo_create, name='ciclo_new'),
     url(r'^editCiclo/(?P<pk>\d+)$', CicloViews.ciclo_update, name='ciclo_edit'),
     url(r'^deleteCiclo/(?P<pk>\d+)$', CicloViews.ciclo_delete, name='ciclo_delete'),
     url(r'^borrarCiclo/(?P<pk>\d+)$', CicloViews.ciclo_borrar, name='ciclo_borrar'),
+
+    #amb Egresos
+
+    url(r'^egresos', EgresosViews.egresos_list, name='egresos_list'),
+    url(r'^newEgreso$', EgresosViews.egreso_create, name='egreso_new'),
+    url(r'^editEgreso/(?P<pk>\d+)$', EgresosViews.egreso_update, name='egreso_edit'),
+    url(r'^borrarEgreso/(?P<pk>\d+)$', EgresosViews.egreso_borrar, name='egreso_borrar'),
 
 ]

@@ -1,0 +1,89 @@
+{% extends 'Gestion_Inst/plantilla-back.html' %}
+{% block header %}Egresos{% endblock %}
+{% block principal %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Lista</div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Categoria</th>
+                        <th>Fecha</th>
+                        <th>Monto $</th>
+                        <th>Descripcion</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for server in object_list %}
+                        <tr>
+                            <td>{{ server.id }}</td>
+                            <td>{{ server.categoria }}</td>
+                            <td>{{ server.fecha_pago }}</td>
+                            <td>{{ server.monto }}</td>
+                            <td>{{ server.descripcion }}</td>
+
+                            <td>
+                                <p><a data-toggle="modal" href="#editar{{ server.id }}" class="btn btn-sm btn-warning">Editar</a></p>
+                            </td>
+
+                            <div id="editar{{ server.id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Editar Egreso</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Esta seguro que desea Editar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'egreso_edit' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <td>
+                                <p><a data-toggle="modal" href="#eliminar{{ server.id }}" class="btn btn-sm btn-danger">Eliminar</a></p>
+                            </td>
+
+                            <div id="eliminar{{ server.id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Eliminar Egreso</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Esta seguro que desea Eliminar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'egreso_borrar' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="{% url "egreso_new" %}" class="btn btn-primary">Nuevo</a>
+{% endblock %}
