@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews
+from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews, IngresosViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
@@ -76,5 +76,12 @@ urlpatterns = [
     url(r'^newEgreso$', EgresosViews.egreso_create, name='egreso_new'),
     url(r'^editEgreso/(?P<pk>\d+)$', EgresosViews.egreso_update, name='egreso_edit'),
     url(r'^borrarEgreso/(?P<pk>\d+)$', EgresosViews.egreso_borrar, name='egreso_borrar'),
+
+    #amb Ingresos
+
+    url(r'^ingresos', IngresosViews.ingresos_list, name='ingresos_list'),
+    url(r'^newIngreso$', IngresosViews.ingreso_create, name='ingreso_new'),
+    url(r'^editIngreso/(?P<pk>\d+)$', IngresosViews.ingreso_update, name='ingreso_edit'),
+    url(r'^borrarIngreso/(?P<pk>\d+)$', IngresosViews.ingreso_borrar, name='ingreso_borrar'),
 
 ]

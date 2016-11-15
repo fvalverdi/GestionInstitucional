@@ -41,7 +41,7 @@ class Alumno(Persona):
 	fecha_inicio = models.DateField(default=timezone.now)
 	legajo = models.IntegerField(null=True,blank=True)
 	estado = models.BooleanField("Activo",default=False) #False significa Inactivo - Activo
-	situacion = models.BooleanField("Moroso",default=False) #False significa Al dia - True Moroso
+	#situacion = models.BooleanField("Moroso",default=False) #False significa Al dia - True Moroso
 	nivel = models.ForeignKey(Nivel,null=True)
 	curso = models.ForeignKey(Curso,null=True)
 	division = models.ForeignKey(Division,null=True)
@@ -81,6 +81,7 @@ class Ingresos(models.Model):
 	fecha_pago = models.DateTimeField(default=timezone.now)
 	descripcion = models.CharField(max_length=50)
 	categoria = models.ForeignKey(Categoria)
+	monto = models.FloatField()
 
 class Egresos(models.Model):
 	fecha_pago = models.DateTimeField(default=timezone.now)
