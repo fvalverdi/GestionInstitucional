@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews, IngresosViews
+from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews, IngresosViews, cuotasViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
@@ -61,7 +61,6 @@ urlpatterns = [
     url(r'^deleteCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_delete, name='categoria_delete'),
     url(r'^borrarCategoria/(?P<pk>\d+)$', CategoriaViews.categoria_borrar, name='categoria_borrar'),
 
-
      #amb Ciclos
 
     url(r'^ciclos', CicloViews.ciclo_list, name='ciclo_list'),
@@ -83,5 +82,12 @@ urlpatterns = [
     url(r'^newIngreso$', IngresosViews.ingreso_create, name='ingreso_new'),
     url(r'^editIngreso/(?P<pk>\d+)$', IngresosViews.ingreso_update, name='ingreso_edit'),
     url(r'^borrarIngreso/(?P<pk>\d+)$', IngresosViews.ingreso_borrar, name='ingreso_borrar'),
+
+    #amb Cuotas
+
+    url(r'^cuotas', cuotasViews.cuotas_list, name='cuotas_list'),
+    url(r'^newCuota$', cuotasViews.cuota_create, name='cuota_new'),
+    url(r'^editCuota/(?P<pk>\d+)$', cuotasViews.cuota_update, name='cuota_edit'),
+    url(r'^borrarCuota/(?P<pk>\d+)$', cuotasViews.cuota_borrar, name='cuota_borrar'),
 
 ]

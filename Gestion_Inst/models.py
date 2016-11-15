@@ -55,6 +55,8 @@ class Ciclo(models.Model):
 	fecha_inicio = models.DateField()
 	fecha_fin = models.DateField()
 	recargo = models.FloatField()
+	def __str__(self):
+		return self.anio
 
 class Tipo(models.Model):#Ingresos o Egresos
 	descripcion = models.CharField(max_length=50)
@@ -72,7 +74,7 @@ class Pagos_Alumnos(models.Model):
 	fecha_inicio = models.DateField()
 	fecha_vencimiento = models.DateField()
 	monto_abonado = models.FloatField()
-	estado = models.BooleanField()
+	estado = models.BooleanField("Adeuda?",default=False) #False significa Al dia - True= queda saldo pendiente
 	alumno = models.ForeignKey(Alumno)
 	ciclo = models.ForeignKey(Ciclo)
 	categoria = models.ForeignKey(Categoria)
