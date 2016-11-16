@@ -1,5 +1,5 @@
 {% extends 'Gestion_Inst/plantilla-back.html' %}
-{% block header %}Alumnos{% endblock %}
+{% block header %}Incripciones{% endblock %}
 {% block principal %}
 
     <div class="panel panel-default">
@@ -10,47 +10,42 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Alumno</th>
-                        <th>DNI</th>
-                        <th>Nivel</th>
-                        <th>Curso</th>
-                        <th>Div</th>
-                        <!--<th>Situacion</th>-->
-                        <th>Estado</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Ciclo</th>
+                        <th>Cuotas</th>
+                        <th>Estado Ciclo</th>
+                        <th>Estado Insc</th>
+                        <th>Accion</th>
+                        <!--<th>Editar</th>
+                        <th>Eliminar</th>-->
                     </tr>
                     </thead>
                     <tbody>
                     {% for server in object_list %}
                         <tr>
                             <td>{{ server.id }}</td>
-                            <td>{{ server.apellido }}, {{ server.nombres }}</td>
-                            <td>{{ server.dni }}</td>
-                            <td>{{ server.nivel }}</td>
-                            <td>{{ server.curso }}</td>
-                            <td>{{ server.division }}</td>
+                            <td>{{ server.ciclo }}</td>
                             <td>
-                                <p><a data-toggle="modal" href="{% url "inscripciones_list" %}" class="btn btn-sm btn-info">Ver</a></p>
+                                <p><a data-toggle="modal" href="cursos_list{{ server.id }}" class="btn btn-sm btn-info">Cuotas</a></p>
                             </td>
-                            <!--<td>{{ server.situacion }}</td>-->
+                            <td>{{ server.estado }}</td>
+                            <td>{{ server.estado }}</td>
                             <td>
-                                <p><a data-toggle="modal" href="#editar{{ server.id }}" class="btn btn-sm btn-warning">Editar</a></p>
+                                <p><a data-toggle="modal" href="ciclo_list{{ server.id }}" class="btn btn-sm btn-info">Pagar</a></p>
                             </td>
 
-                            <div id="editar{{ server.id }}" class="modal fade" role="dialog">
+                            <!--<div id="editar{{ server.id }}" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
-                                    <div class="modal-content">
+                                    <!--<div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Editar Alumno</h4>
+                                            <h4 class="modal-title">Editar Division</h4>
                                         </div>
                                         <div class="modal-body">
                                             <p>Esta seguro que desea Editar?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{% url 'editarAlumno' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <a href="{% url 'division_edit' server.id %}"  class="btn  btn-primary">Aceptar</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                         </div>
                                     </div>
@@ -66,24 +61,24 @@
                                 <div class="modal-dialog">
 
                                     <!-- Modal content-->
-                                    <div class="modal-content">
+                                    <!--<div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Eliminar Alumno</h4>
+                                            <h4 class="modal-title">Eliminar Division</h4>
                                         </div>
                                         <div class="modal-body">
                                             <p>Esta seguro que desea Eliminar?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{% url 'alumno_borrar' server.id %}"  class="btn  btn-primary">Aceptar</a>
+                                            <a href="{% url 'division_borrar' server.id %}"  class="btn  btn-primary">Aceptar</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                         </div>
                                     </div>
 
                                 </div>
-                            </div>
-
-
+                            </div>-->
+                            <!--<td><a href="{% url "division_edit" server.id %}">Editar</a></td>
+                            <td><a href="{% url "division_delete" server.id %}">Eliminar</a></td>-->
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -93,5 +88,5 @@
     </div>
 
 
-    <a href="{% url "crearAlumno" %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url "ciclo_list" %}" class="btn btn-primary">Nuevo</a>
 {% endblock %}

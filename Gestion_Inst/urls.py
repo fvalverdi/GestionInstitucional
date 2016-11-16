@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews, EgresosViews, IngresosViews, cuotasViews
+from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews,InscViews, EgresosViews, IngresosViews, cuotasViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
@@ -89,5 +89,12 @@ urlpatterns = [
     url(r'^newCuota$', cuotasViews.cuota_create, name='cuota_new'),
     url(r'^editCuota/(?P<pk>\d+)$', cuotasViews.cuota_update, name='cuota_edit'),
     url(r'^borrarCuota/(?P<pk>\d+)$', cuotasViews.cuota_borrar, name='cuota_borrar'),
+
+    #amb Inscripciones
+
+    url(r'^inscripciones', InscViews.inscripciones_list, name='inscripciones_list'),
+    url(r'^newinscripcion$', InscViews.inscripciones_create, name='inscripciones_new'),
+    url(r'^editinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_update, name='inscripciones_edit'),
+    url(r'^borrarinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_borrar, name='inscripciones_borrar'),
 
 ]

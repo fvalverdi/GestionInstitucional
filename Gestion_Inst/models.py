@@ -56,7 +56,7 @@ class Ciclo(models.Model):
 	fecha_fin = models.DateField()
 	recargo = models.FloatField()
 	def __str__(self):
-		return self.anio
+		return str(self.anio)
 
 class Tipo(models.Model):#Ingresos o Egresos
 	descripcion = models.CharField(max_length=50)
