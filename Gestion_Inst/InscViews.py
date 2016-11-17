@@ -10,18 +10,18 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from django.forms import forms
 from django import forms
-from Gestion_Inst.models import Pagos_Alumnos
+from Gestion_Inst.models import Pagos_Alumnos, Categoria, Alumno
 
 
 
-class IngresosForm(forms.ModelForm):
+class InscripcionForm(forms.ModelForm):
 
     class Meta:
-        model = Ingresos
-        fields = ('categoria','fecha_pago','monto','descripcion',)
+        model = Pagos_Alumnos
+        fields = ('monto_abonado','estado',)
 
     def __init__(self,*args,**kwargs):
-        super(IngresosForm,self).__init__(*args,**kwargs)
+        super(InscripcionForm,self).__init__(*args,**kwargs)
         self.helper = FormHelper(self)
         self.helper.form_class = 'form-horizontal'
         self.helper.field_class = 'col-lg-6'
@@ -32,29 +32,52 @@ class IngresosForm(forms.ModelForm):
             )
         )
 
-def ingresos_list(request, template_name='Gestion_Inst/Ingresos/ingresos_list.html'):
-    servers = Ingresos.objects.all()
+class MatriculaForm(forms.ModelForm):
+
+    class Meta:
+        model = Pagos_Alumnos
+        fields = ('ciclo',)
+
+    def __init__(self,*args,**kwargs):
+        super(MatriculaForm,self).__init__(*args,**kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.field_class = 'col-lg-6'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.layout.append(
+            FormActions(
+                Submit('Guardar','Guardar'),
+            )
+        )
+
+def inscripciones_list(request, alumno, template_name='Gestion_Inst/Inscripcion/inscripcion_list.html'):
+    categoria = Categoria.objects.filter(descripcion__icontains='Matricula').get()
+    alumno = get_object_or_404(Alumno, pk=alumno)
+    inscripciones = Pagos_Alumnos.objects.filter(categoria=categoria.pk).filter(alumno=alumno.pk)
     data = {}
-    data['object_list'] = servers
+    data['inscripciones'] = inscripciones
+    data['alumno'] = alumno
     return render(request, template_name, data)
 
-def ingreso_create(request, template_name='Gestion_Inst/Ingresos/ingresos_form.html'):
-    form = IngresosForm(request.POST or None)
+def inscripciones_create(request, template_name='Gestion_Inst/Inscripcion/inscripcion_form.html'):
+    form = MatriculaForm(request.POST or None)
     if form.is_valid():
+        #antes de guardar, debo extraer el ciclo selecionado buscarlo  traer todos los datos para crear
+        #el registro de la matricula mas las cuotas de pago
         form.save()
-        return redirect('ingresos_list')
+        return redirect('inscripciones_list')
     return render(request, template_name, {'form':form})
 
-def ingreso_update(request, pk, template_name='Gestion_Inst/Ingresos/ingresos_form.html'):
-    server = get_object_or_404(Ciclo, pk=pk)
-    form = IngresosForm(request.POST or None, instance=server)
+def inscripciones_update(request, pk, template_name='Gestion_Inst/Inscripcion/inscripcion_form.html'):
+    server = get_object_or_404(Pagos_Alumnos, pk=pk)
+    form = InscripcionForm(request.POST or None, instance=server)
     if form.is_valid():
         form.save()
-        return redirect('ingresos_list')
+        return redirect('inscripciones_list')
     return render(request, template_name, {'form':form})
 
-def ingreso_borrar(request, pk):
-    server = get_object_or_404(Ciclo, pk=pk)
+def inscripciones_borrar(request, pk):
+    server = get_object_or_404(Pagos_Alumnos, pk=pk)
 
     server.delete()
-    return redirect('ingresos_list')
+    return redirect('inscripciones_list')

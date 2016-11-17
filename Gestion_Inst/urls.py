@@ -92,7 +92,7 @@ urlpatterns = [
 
     #amb Inscripciones
 
-    url(r'^inscripciones', InscViews.inscripciones_list, name='inscripciones_list'),
+    url(r'^inscripciones/(?P<alumno>\d+)$', InscViews.inscripciones_list, name='inscripciones_list'),
     url(r'^newinscripcion$', InscViews.inscripciones_create, name='inscripciones_new'),
     url(r'^editinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_update, name='inscripciones_edit'),
     url(r'^borrarinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_borrar, name='inscripciones_borrar'),

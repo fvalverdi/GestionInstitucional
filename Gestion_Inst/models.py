@@ -70,10 +70,10 @@ class Categoria(models.Model): #puede ser matriculacion, cuota, insumos, compras
 		return self.descripcion+' - '+self.tipo.descripcion
 
 class Pagos_Alumnos(models.Model):
-	fecha_pago = models.DateTimeField(default=timezone.now)
-	fecha_inicio = models.DateField()
-	fecha_vencimiento = models.DateField()
-	monto_abonado = models.FloatField()
+	fecha_pago = models.DateTimeField(null=True,blank=True) #(default=timezone.now)
+	fecha_inicio = models.DateField(null=True,blank=True)
+	fecha_vencimiento = models.DateField(null=True,blank=True)
+	monto_abonado = models.FloatField(null=True,blank=True)
 	estado = models.BooleanField("Adeuda?",default=False) #False significa Al dia - True= queda saldo pendiente
 	alumno = models.ForeignKey(Alumno)
 	ciclo = models.ForeignKey(Ciclo)
