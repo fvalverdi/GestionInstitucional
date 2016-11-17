@@ -1,0 +1,61 @@
+{% extends 'Gestion_Inst/plantilla-back.html' %}
+
+{% block header %}Nueva Inscripcion a un ciclo del Alumno: {{ alumno }}{% endblock %}
+
+
+{% block css %}
+
+
+{% endblock %}
+
+
+{% block js3 %}
+
+    <script>
+        var miPopup
+        function buscarCiclo() {
+            miPopup = window.open("/buscarCiclo", "miwin", "width=1000,height=800,scrollbars=yes")
+            miPopup.focus()
+        }
+    </script>
+
+
+{% endblock %}
+
+
+{% block principal %}
+
+    <h1>Nueva Inscripcion</h1>
+
+    {% if errores %}
+        <div class="alert alert-danger" role="alert">
+            Corrija los siguientes errores:
+            <ol>
+                fecha: {{ fecha }}
+                {% for error in errores %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+
+    <form class="form-horizontal" name=formul method="POST" action="{% url 'agregarTurno' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="anio" class="col-sm-2 control-label">Año</label>
+            <!-- <input type=text name=paciente value="Seleccione el Paciente" size=25 maxlength=3> -->
+            <div class="col-sm-3">
+                <input type=text class="form-control" name=anio placeholder="año" disabled/>
+                <input type="Button" value="Buscar" onclick="buscarCiclo()" class="save btn btn-primary">
+            </div>
+            <!-- <input type=text name=paciente value="Paciente" size=10 maxlength=3>  -->
+            <input type="hidden" id="hanio" name="hanio"/>  <!-- <br></br> -->
+        </div>
+
+        <button type="submit" class="save btn btn-primary">Guardar</button>
+
+    </form>
+
+{% endblock %}
+

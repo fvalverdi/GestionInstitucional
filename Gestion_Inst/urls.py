@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
-from Gestion_Inst import views, CursoViews, NivelViews, DivisionViews, CategoriaViews, CicloViews, AlumnosViews,InscViews, EgresosViews, IngresosViews, cuotasViews
+from Gestion_Inst import views, CursoViews, NivelViews, \
+    DivisionViews, CategoriaViews, CicloViews, AlumnosViews,InscViews, \
+    EgresosViews, IngresosViews, cuotasViews, SelectoresViews
 
 urlpatterns = [
     url(r'^$', views.index,name='index'),
@@ -96,5 +99,13 @@ urlpatterns = [
     url(r'^newinscripcion$', InscViews.inscripciones_create, name='inscripciones_new'),
     url(r'^editinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_update, name='inscripciones_edit'),
     url(r'^borrarinscripcion/(?P<pk>\d+)$', InscViews.inscripciones_borrar, name='inscripciones_borrar'),
+    url(r'^inscripcion/nueva/$', TemplateView.as_view(template_name='Gestion_Inst/Inscripcion/nueva_inscripcion.html'), name='nueva_inscripcion'),
+
+
+    #buscadores
+    url(r'^buscarCiclo/$', SelectoresViews.selectorCiclos, name='selector_ciclos'),
+
+
+
 
 ]

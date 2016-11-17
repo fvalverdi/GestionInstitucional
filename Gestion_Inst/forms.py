@@ -53,3 +53,8 @@ class NivelEnsenanzaForm(forms.ModelForm):
                 Submit('Guardar','Guardar'),
             )
         )
+
+class buscadorCicloForm(forms.Form):
+	"""docstring for OrganizacionForm"""
+	#class Meta:
+	descripcion = forms.CharField(label=u'Año')
